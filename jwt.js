@@ -2039,7 +2039,7 @@ var JWTInternals = (function() {
 
   function base64urlencode(arg)
   {
-    var s = Ti.Utils.base64encode(arg).toString(); // Standard base64 encoder
+    var s = Ti.Utils.base64encode(arg).toString().replace(/\r?\n|\r/g, ""); // Standard base64 encoder
     s = s.split('=')[0]; // Remove any trailing '='s
     s = s.replace(/\+/g, '-'); // 62nd char of encoding
     s = s.replace(/\//g, '_'); // 63rd char of encoding
